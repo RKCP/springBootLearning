@@ -6,7 +6,12 @@
 
   <groupId>com.raphael</groupId>
   <artifactId>microservices</artifactId>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
+
+  <modules>
+    <module>customer</module>
+  </modules>
 
   <name>microservices</name>
   <url>https://www.rkcp.github.io</url>
@@ -19,7 +24,7 @@
     <spring.boot.dependencies.version>2.5.7</spring.boot.dependencies.version>
   </properties>
 
-  <dependencyManagement>
+  <dependencyManagement> <!--So that our subprojects (like customer etc.) can pick whatever dependency that they want from spring-boot-dependencies (e.g. web etc)-->
     <dependencies>
       <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -31,7 +36,7 @@
     </dependencies>
   </dependencyManagement>
 
-  <dependencies>
+  <dependencies> <!--So that all submodules(the microservices like customer etc.) by default have these two dependencies, without them explicitly importing it into their pom.xml-->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -45,7 +50,7 @@
     </dependency>
   </dependencies>
 
-  <build>
+  <build> <!--Not everything (meaning not all the sub-microservices like customer etc.) will need this plugin, so that's why it is separated here...-->
     <pluginManagement>
       <plugins>
         <plugin>
