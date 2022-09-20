@@ -1,0 +1,7 @@
+com/raphael/customer/CustomerApplication.class
+com/raphael/customer/CustomerService.class
+com/raphael/customer/Customer$CustomerBuilder.class
+com/raphael/customer/CustomerRepository.class
+com/raphael/customer/CustomerController.class
+com/raphael/customer/CustomerRegistrationRequest.class
+com/raphael/customer/Customer.class
