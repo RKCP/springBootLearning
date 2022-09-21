@@ -1,9 +1,13 @@
 package com.raphael.customer;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service // annotate this so Spring Initializes this as a bean, so that we can inject it into our controller
-public record CustomerService(CustomerRepository customerRepository) {
+@AllArgsConstructor
+public class CustomerService {
+
+    private final CustomerRepository customerRepository;
     public void registerCustomer(CustomerRegistrationRequest request) {
         // takes in request that was sent from postman to controller, and builds a new customer with the details from that sent body
         Customer customer = Customer.builder()
