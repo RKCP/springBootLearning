@@ -1,0 +1,17 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: fraud
+  datasource:
+    password: password
+    url: jdbc:postgresql://localhost:5432/fraud #usually would be a different database, but for our local use, we are just using the same postgres database instance
+    username: raphael
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true

@@ -1,5 +1,5 @@
 services:
-  postgres:
+  postgres: # Ideally in an MS Architecture, we would have another 'services' called 'postgres-fraud' to have a completely separate service for the database. We are sharing here for the sake of saving cpu. We are using the same database instance here
     container_name: postgres
     image: postgres
     environment:
