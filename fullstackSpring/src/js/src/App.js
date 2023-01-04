@@ -7,6 +7,7 @@ import { getAllStudents } from './client'
 class App extends Component{
   render() {
     getAllStudents().then(res => res.json().then(students => {
+      console.log("1")
       console.log(students);
     }));
     return <h1>Hello World Spring Boot & React</h1>
