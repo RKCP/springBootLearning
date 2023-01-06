@@ -3,7 +3,12 @@ import Container from './Container';
 import { render } from '@testing-library/react';
 import { Component } from 'react';
 import { getAllStudents } from './client';
+import React from 'react';
+import { LoadingOutlined } from '@ant-design/icons';
 import { Avatar, Table, Spin } from 'antd';
+
+
+const getIndicatorIcon = () => <LoadingOutlined style={{ fontSize: 24, }} spin />;
 
 class App extends Component{
 
@@ -33,7 +38,15 @@ class App extends Component{
 
   render() {
 
-    const { students } = this.state; // state contains the actual student
+    const { students, isFetching } = this.state; // state contains the actual student
+
+    if (isFetching) {
+      return (
+        <Container>
+          <Spin indicator={getIndicatorIcon}/>
+        </Container>
+      )
+    }
 
     if (students && students.length) { // if we have students, and it is not empty
       
